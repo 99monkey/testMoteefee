@@ -1,32 +1,67 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.b-progress {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+
+.b-progress .progress-entry:first-child {
+  width: 32px;
+  flex: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.b-progress .progress-entry:first-child:before {
+  display: none;
+}
+
+
+
+.progress-entry {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+
+.progress-entry:before {
+  content: '';
+  position: absolute;
+  height: 10px;
+  width: 100%;
+  top: 11px;
+  left: -16px;
+  background-color: #DBDBDB;
+  z-index: -1;
+}
+
+.progress-el {
+  position: relative;
+
+}
+
+.progress-text {
+  position: absolute;
+  top: -10px;  /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%);
+}
+
+.progress-circle {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  background-color: white;
+  border: 8px solid #DBDBDB;
+}
+
+
+.progress-entry.__active .progress-circle {
+  border-color: #5131D7;
+}
+
+.progress-entry.__active:before{
+  background-color: #5131D7;
 }
